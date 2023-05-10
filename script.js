@@ -14,17 +14,16 @@ function rot13(encodedStr){
    let decodedArr = []; // Your Result goes here
   // Only change code below this line
 	for (let i = 0; i < encodedStr.length; i++) {
-	    const charCode = encodedStr.charCodeAt(i);
-	
-	    if (charCode >= 65 && charCode <= 90) { // A-Z
-	      let newCharCode = charCode + 13;
-	      if (newCharCode > 90) {
-	        newCharCode -= 26;
-	      }
-	      decodedArr .push(String.fromCharCode(newCharCode));
-	    } else {
-	      decodedArr .push(encodedStr[i]);
-	    }
+    const charCode = encodedStr.charCodeAt(i);
+    if (charCode >= 65 && charCode <= 90) { // A-Z
+      let newCharCode = charCode + 13;
+      if (newCharCode > 90) {
+        newCharCode -= 26;
+      }
+      decodedArr.push(lookup[String.fromCharCode(newCharCode)]);
+    } else {
+      decodedArr.push(encodedStr[i]);
+    }
   }
 
   return decodedArr;//return decodedArr
